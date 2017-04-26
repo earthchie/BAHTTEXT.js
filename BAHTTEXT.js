@@ -1,6 +1,6 @@
 /**
  * @name BAHTTEXT.js
- * @version 1.1.1
+ * @version 1.1.2
  * @update April 26, 2017
  * @website: https://github.com/earthchie/BAHTTEXT.js
  * @author Earthchie http://www.earthchie.com/
@@ -34,12 +34,20 @@ function BAHTTEXT(num, suffix) {
              * precision-hack
              * more accurate than parseFloat the whole number 
              */
+            
             parts = num.toString().split('.');
+            console.log(parts);
             num = parts[0];
             parts[1] = parseFloat('0.' + parts[1]);
-            parts[1] = ((Math.round(parts[1] * 100) / 100).toString() + '0').substring(0, 4); // more accurate than toFixed(2)
+            parts[1] = (Math.round(parts[1] * 100) / 100).toString() // more accurate than toFixed(2)
             parts = parts[1].split('.');
+            
+            if(parts.length > 1 && parts[1].length === 1){
+                parts[1] = parts[1].toString() + '0';
+            }
+            
             num = parseInt(num, 10) + parseInt(parts[0], 10);
+            
             
             /* 
              * end - precision-hack
