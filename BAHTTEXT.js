@@ -36,13 +36,13 @@ function BAHTTEXT(num, suffix) {
              */
             
             parts = num.toString().split('.');
-            console.log(parts);
+            
             num = parts[0];
             parts[1] = parseFloat('0.' + parts[1]);
-            parts[1] = (Math.round(parts[1] * 100) / 100).toString() // more accurate than toFixed(2)
+            parts[1] = (Math.round(parts[1] * 100) / 100).toString(); // more accurate than toFixed(2)
             parts = parts[1].split('.');
             
-            if(parts.length > 1 && parts[1].length === 1){
+            if (parts.length > 1 && parts[1].length === 1) {
                 parts[1] = parts[1].toString() + '0';
             }
             
