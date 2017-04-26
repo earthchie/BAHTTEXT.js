@@ -1,6 +1,6 @@
 /**
  * @name BAHTTEXT.js
- * @version 1.1.0
+ * @version 1.1.1
  * @update April 26, 2017
  * @website: https://github.com/earthchie/BAHTTEXT.js
  * @author Earthchie http://www.earthchie.com/
@@ -34,18 +34,16 @@ function BAHTTEXT(num, suffix) {
              * precision-hack
              * more accurate than parseFloat the whole number 
              */
-            
             parts = num.toString().split('.');
             num = parts[0];
             parts[1] = parseFloat('0.' + parts[1]);
-            parts[1] = Math.round(parts[1] * 100) / 100; // more accurate than toFixed(2)
-            parts = parts[1].toString().split('.');
+            parts[1] = ((Math.round(parts[1] * 100) / 100).toString() + '0').substring(0, 4); // more accurate than toFixed(2)
+            parts = parts[1].split('.');
             num = parseInt(num, 10) + parseInt(parts[0], 10);
             
             /* 
              * end - precision-hack
              */
-            console.log(num);
             text = num ? BAHTTEXT(num) : '';
             
             if (parseInt(parts[1], 10) > 0) {
@@ -79,7 +77,7 @@ function BAHTTEXT(num, suffix) {
                         if (len > 2 && i === len - 1 && digit === 1 && suffix !== 'สตางค์') {
                             text += 'เอ็ด' + t[len - 1 - i];
                         } else {
-                            text += n[digit] + t[len- 1 - i];
+                            text += n[digit] + t[len - 1 - i];
                         }
                     }
                 }
