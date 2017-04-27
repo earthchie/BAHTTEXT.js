@@ -1,6 +1,6 @@
 /**
  * @name BAHTTEXT.js
- * @version 1.1.2
+ * @version 1.1.3
  * @update April 26, 2017
  * @website: https://github.com/earthchie/BAHTTEXT.js
  * @author Earthchie http://www.earthchie.com/
@@ -68,10 +68,12 @@ function BAHTTEXT(num, suffix) {
                 parts = num.split('').reverse().join('').match(/\d{1,6}/g).map(function (part) {
                     return part.split('').reverse().join('');
                 });
-                
+                console.log(parts);
                 // join parts
                 for (i = 0; i < parts.length; i = i + 1) {
-                    text = BAHTTEXT(parts[i], 'ล้าน'.repeat(i)) + text;
+                    if(parseInt(parts[i], 10)){
+                        text = BAHTTEXT(parts[i], 'ล้าน'.repeat(i)) + text;
+                    }
                 }
                 
                 return text + suffix;
