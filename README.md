@@ -1,5 +1,8 @@
 # BATHTEXT.js
-แปลงจำนวนเงินเป็นคำอ่าน
+แปลงจำนวนเงินเป็นคำอ่าน 
+
+* ไม่มีลิมิตของจำนวนตัวเลข ใช้อ่านเลขกี่หลักก็ได้
+* ในกรณีที่เลขใหญ่กว่า [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) ให้ส่งเลขมาเป็น string แทน
 
 # ดู Demo และรายละเอียดเพิ่มเติม
 [https://earthchie.github.io/BAHTTEXT.js/](https://earthchie.github.io/BAHTTEXT.js/)
