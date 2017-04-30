@@ -7,7 +7,7 @@
 # ดู Demo และรายละเอียดเพิ่มเติม
 [https://earthchie.github.io/BAHTTEXT.js/](https://earthchie.github.io/BAHTTEXT.js/)
 
-![image](https://cloud.githubusercontent.com/assets/7013039/25438868/e9611b80-2ac4-11e7-8713-212a7f24caa8.png)
+![image](https://cloud.githubusercontent.com/assets/7013039/25568593/4bf435ac-2e30-11e7-9876-8286073e8f0e.png)
 
 # โปรดทราบ
 
