@@ -1,6 +1,6 @@
 /**
  * @name BAHTTEXT.js
- * @version 1.1.4
+ * @version 1.1.5
  * @update May 1, 2017
  * @website: https://github.com/earthchie/BAHTTEXT.js
  * @author Earthchie http://www.earthchie.com/
@@ -20,7 +20,7 @@ function BAHTTEXT(num, suffix) {
         return 'ศูนย์บาทถ้วน';
     } else {
         
-        var t = ['', 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน'],
+        var t = ['', 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน', 'ล้าน'],
             n = ['', 'หนึ่ง', 'สอง', 'สาม', 'สี่', 'ห้า', 'หก', 'เจ็ด', 'แปด', 'เก้า'],
             len,
             digit,
@@ -61,24 +61,14 @@ function BAHTTEXT(num, suffix) {
             return text;
             
         } else {
-            
-            if (num.length > 6) {
-                
-                // split number into parts. each parts contain number upto 6 digits.
-                parts = num.split('').reverse().join('').match(/\d{1,6}/g).map(function (part) {
-                    return part.split('').reverse().join('');
-                });
-                
-                // join parts
-                for (i = 0; i < parts.length; i = i + 1) {
-                    if(parseInt(parts[i], 10)){
-                        text = BAHTTEXT(parts[i], 'ล้าน') + text;
-                    }
-                }
-                
-                return text + suffix;
-                
-            } else {
+
+            if (num.length > 7) { // more than (or equal to) 10 millions
+
+				var overflow = num.substring(0, num.length - 6);
+				var remains = num.slice(-6);
+				return BAHTTEXT(overflow).replace('บาทถ้วน', 'ล้าน') + BAHTTEXT(remains).replace('ศูนย์', '');
+
+			} else {
                 
                 len = num.length;
                 for (i = 0; i < len; i = i + 1) {
